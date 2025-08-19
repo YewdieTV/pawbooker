@@ -7,12 +7,12 @@ import { Toaster } from '@/components/ui/toaster';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'PawBooker - Professional Dog Care Services',
+  title: 'Beautiful Souls Boarding - Professional Dog Care Services',
   description: 'Book trusted dog boarding, daycare, walks, and drop-in visits with our AI-powered scheduling assistant.',
   keywords: ['dog boarding', 'dog daycare', 'dog walking', 'pet care', 'Toronto'],
-  authors: [{ name: 'PawBooker' }],
+  authors: [{ name: 'Beautiful Souls Boarding' }],
   openGraph: {
-    title: 'PawBooker - Professional Dog Care Services',
+    title: 'Beautiful Souls Boarding - Professional Dog Care Services',
     description: 'Book trusted dog boarding, daycare, walks, and drop-in visits with our AI-powered scheduling assistant.',
     type: 'website',
     locale: 'en_CA',

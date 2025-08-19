@@ -19,7 +19,7 @@ async function main() {
       address: '123 Dog Street, Toronto, ON M5V 3A8',
       contactEmail: 'hello@pawbooker.com',
       contactPhone: '+1 (416) 555-0123',
-      businessName: 'PawBooker Dog Services',
+      businessName: 'Beautiful Souls Boarding',
     },
   });
 
@@ -54,56 +54,20 @@ async function main() {
     {
       type: ServiceType.BOARDING,
       name: 'Overnight Boarding',
-      description: 'Your dog stays overnight at our facility with 24/7 care',
-      basePriceCents: 8000, // $80.00
-      capacity: 3,
+      description: 'Your dog stays overnight at our facility with 24/7 care, love, and attention',
+      basePriceCents: 6200, // $62.00 per night
+      capacity: 10,
       bufferMins: 60,
       durationMins: null, // Variable duration
     },
     {
       type: ServiceType.DAYCARE,
       name: 'Daycare',
-      description: 'Daytime care and socialization for your dog',
-      basePriceCents: 5000, // $50.00
-      capacity: 5,
+      description: 'Daytime care and socialization for your dog while you work',
+      basePriceCents: 4500, // $45.00 per day
+      capacity: 15,
       bufferMins: 30,
       durationMins: null, // Variable duration
-    },
-    {
-      type: ServiceType.WALK_30,
-      name: '30-Minute Walk',
-      description: 'A refreshing 30-minute walk around the neighborhood',
-      basePriceCents: 2500, // $25.00
-      capacity: 3,
-      bufferMins: 15,
-      durationMins: 30,
-    },
-    {
-      type: ServiceType.WALK_60,
-      name: '60-Minute Walk',
-      description: 'An extended 60-minute walk with extra exercise',
-      basePriceCents: 4000, // $40.00
-      capacity: 2,
-      bufferMins: 15,
-      durationMins: 60,
-    },
-    {
-      type: ServiceType.DROPIN_30,
-      name: '30-Minute Drop-in Visit',
-      description: 'Quick check-in, feeding, and bathroom break',
-      basePriceCents: 2000, // $20.00
-      capacity: 1,
-      bufferMins: 15,
-      durationMins: 30,
-    },
-    {
-      type: ServiceType.DROPIN_45,
-      name: '45-Minute Drop-in Visit',
-      description: 'Extended visit with playtime and care',
-      basePriceCents: 3000, // $30.00
-      capacity: 1,
-      bufferMins: 15,
-      durationMins: 45,
     },
   ];
 

@@ -19,38 +19,37 @@ export default function HomePage() {
   const services = [
     {
       title: 'Overnight Boarding',
-      description: 'Your dog stays overnight at our facility with 24/7 care and attention.',
-      price: 'From $80/night',
+      description: 'Your dog stays overnight at our facility with 24/7 care, love, and attention in a home-like environment.',
+      price: 'From $62/night',
+      pricingDetails: [
+        'Standard Rate: $62/night',
+        'Holiday Rate: $78/night', 
+        'Additional Dog: +$45/night',
+        'Puppy Rate: $73/night',
+        '10+ Nights: $50/night'
+      ],
       icon: PawPrint,
-      features: ['24/7 supervision', 'Comfortable sleeping areas', 'Regular feeding schedule', 'Exercise and playtime'],
+      features: ['24/7 supervision', 'Home-like environment', 'Regular feeding & medication', 'Exercise and playtime', 'Individual attention', 'Daily updates', 'Emergency care available', 'Comfortable sleeping areas'],
     },
     {
       title: 'Daycare',
-      description: 'Daytime care and socialization for your dog while you\'re at work.',
-      price: 'From $50/day',
+      description: 'Daytime care and socialization for your dog while you work. A safe, fun environment for social play.',
+      price: 'From $45/day',
+      pricingDetails: [
+        'Standard Rate: $45/day',
+        'Holiday Rate: $62/day',
+        'Additional Dog: +$34/day', 
+        'Puppy Rate: $56/day'
+      ],
       icon: Heart,
-      features: ['Social play groups', 'Indoor/outdoor activities', 'Supervised playtime', 'Regular breaks'],
-    },
-    {
-      title: 'Dog Walking',
-      description: 'Professional walks to keep your dog healthy and happy.',
-      price: 'From $25/walk',
-      icon: Clock,
-      features: ['30 or 60-minute walks', 'Neighborhood exploration', 'Exercise and stimulation', 'Flexible scheduling'],
-    },
-    {
-      title: 'Drop-in Visits',
-      description: 'Quick check-ins for feeding, bathroom breaks, and companionship.',
-      price: 'From $20/visit',
-      icon: Calendar,
-      features: ['30 or 45-minute visits', 'Feeding and medication', 'Bathroom breaks', 'Brief playtime'],
+      features: ['Social play groups', 'Indoor/outdoor activities', 'Supervised playtime', 'Rest periods', 'Feeding included', 'Individual attention', 'Daily report cards', 'Safe environment'],
     },
   ];
 
   const testimonials = [
     {
       name: 'Sarah M.',
-      text: 'PawBooker has been a lifesaver! The AI booking system made it so easy to schedule walks for Luna. Highly recommend!',
+      text: 'Beautiful Souls Boarding has been a lifesaver! The AI booking system made it so easy to schedule daycare for Luna. The care is exceptional!',
       rating: 5,
     },
     {
@@ -74,11 +73,11 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Professional Dog Care
-              <span className="text-blue-600"> Made Simple</span>
+              Beautiful Souls Boarding
+              <span className="text-blue-600"> - Professional Dog Care</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Book trusted dog boarding, daycare, walks, and drop-in visits with our AI-powered 
+              Book trusted dog boarding and daycare services with our AI-powered 
               scheduling assistant. Your furry friend deserves the best care in Toronto.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -110,7 +109,7 @@ export default function HomePage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
@@ -126,6 +125,21 @@ export default function HomePage() {
                     <div className="text-lg font-semibold text-blue-600 mb-4">
                       {service.price}
                     </div>
+                    
+                    {/* Pricing Details */}
+                    <div className="mb-4 p-3 bg-blue-50 rounded-lg">
+                      <h4 className="font-semibold text-sm text-blue-900 mb-2">Pricing Details:</h4>
+                      <ul className="space-y-1">
+                        {service.pricingDetails.map((detail, detailIndex) => (
+                          <li key={detailIndex} className="text-xs text-blue-800">
+                            • {detail}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    {/* Features */}
+                    <h4 className="font-semibold text-sm text-gray-900 mb-2">What's Included:</h4>
                     <ul className="space-y-2">
                       {service.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-center text-sm text-gray-600">
@@ -147,7 +161,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose PawBooker?
+              Why Choose Beautiful Souls Boarding?
             </h2>
           </div>
           
@@ -218,9 +232,9 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Book Your Dog's Care?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Join hundreds of happy pet parents in Toronto who trust PawBooker for their dog care needs.
-          </p>
+                      <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              Join hundreds of happy pet parents in Toronto who trust Beautiful Souls Boarding for their dog care needs.
+            </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" variant="secondary">
               <Link href="/book-with-assistant">
@@ -244,7 +258,7 @@ export default function HomePage() {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <PawPrint className="h-8 w-8 text-blue-400" />
-                <span className="text-xl font-bold">PawBooker</span>
+                <span className="text-xl font-bold">Beautiful Souls Boarding</span>
               </div>
               <p className="text-gray-400">
                 Professional dog care services in Toronto. Your pet's happiness is our mission.
@@ -290,7 +304,7 @@ export default function HomePage() {
           </div>
           
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 PawBooker. All rights reserved.</p>
+            <p>&copy; 2024 Beautiful Souls Boarding. All rights reserved.</p>
           </div>
         </div>
       </footer>

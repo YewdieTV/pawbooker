@@ -20,20 +20,29 @@ export default function ServicesPage() {
     {
       id: 'boarding',
       title: 'Overnight Boarding',
-      description: 'Your dog stays overnight at our facility with 24/7 care, comfortable sleeping areas, and personalized attention.',
+      description: 'Your dog stays overnight at our home-like facility with 24/7 care, love, and personalized attention.',
       icon: PawPrint,
-      price: 8000, // cents
+      price: 6200, // $62.00 per night
       priceUnit: 'per night',
-      capacity: 3,
+      priceOptions: [
+        { label: 'Standard Rate', price: 6200 },
+        { label: 'Holiday Rate', price: 7800 },
+        { label: 'Additional Dog', price: 4500, note: '+$45 per night' },
+        { label: 'Puppy Rate', price: 7300 },
+        { label: '10+ Nights', price: 5000, note: 'Extended stay discount' }
+      ],
+      capacity: 10,
       features: [
-        '24/7 professional supervision',
-        'Climate-controlled sleeping areas',
-        'Regular feeding schedule',
+        '24/7 loving supervision',
+        'Home-like environment',
+        'Individual attention and care',
+        'Regular feeding & medication',
         'Exercise and playtime',
-        'Medication administration',
         'Daily health monitoring',
         'Photo updates for owners',
-        'Emergency veterinary care'
+        'Emergency veterinary care',
+        'Comfortable sleeping areas',
+        'Socialization with other dogs'
       ],
       requirements: [
         'Current vaccination records required',
@@ -46,126 +55,34 @@ export default function ServicesPage() {
     {
       id: 'daycare',
       title: 'Daycare',
-      description: 'Daytime care and socialization for your dog while you\'re at work. Perfect for busy pet parents who want their dogs to stay active.',
+      description: 'Daytime care and socialization for your dog while you work. A safe, fun environment with lots of love and attention.',
       icon: Heart,
-      price: 5000,
+      price: 4500, // $45.00 per day
       priceUnit: 'per day',
-      capacity: 5,
+      priceOptions: [
+        { label: 'Standard Rate', price: 4500 },
+        { label: 'Holiday Rate', price: 6200 },
+        { label: 'Additional Dog', price: 3400, note: '+$34 per day' },
+        { label: 'Puppy Rate', price: 5600 }
+      ],
+      capacity: 15,
       features: [
-        'Social play groups by size/temperament',
+        'Social play groups by temperament',
         'Indoor and outdoor activities',
         'Supervised playtime',
         'Rest periods and nap time',
-        'Feeding and water breaks',
-        'Basic grooming (brushing)',
-        'Training reinforcement',
-        'Daily report card'
+        'Feeding and water included',
+        'Individual attention',
+        'Daily report cards',
+        'Safe, clean environment',
+        'Emergency care available',
+        'Loving, professional staff'
       ],
       requirements: [
         'Current vaccination records required',
         'Socialization assessment',
         'Spayed/neutered (6+ months)',
         'Flea and tick prevention'
-      ],
-    },
-    {
-      id: 'walk-30',
-      title: '30-Minute Walk',
-      description: 'A refreshing 30-minute neighborhood walk to keep your dog healthy, happy, and well-exercised.',
-      icon: Clock,
-      price: 2500,
-      priceUnit: 'per walk',
-      capacity: 3,
-      features: [
-        'Neighborhood exploration',
-        'Leash training reinforcement',
-        'Bathroom breaks',
-        'Light exercise and stimulation',
-        'Photo updates',
-        'Basic commands practice',
-        'Weather-appropriate gear',
-        'Post-walk report'
-      ],
-      requirements: [
-        'Well-socialized with other dogs',
-        'Good leash manners',
-        'Current vaccination records',
-        'Emergency contact information'
-      ],
-    },
-    {
-      id: 'walk-60',
-      title: '60-Minute Walk',
-      description: 'An extended 60-minute adventure walk with extra exercise, exploration, and mental stimulation for active dogs.',
-      icon: Clock,
-      price: 4000,
-      priceUnit: 'per walk',
-      capacity: 2,
-      features: [
-        'Extended neighborhood exploration',
-        'Park visits when possible',
-        'Advanced exercise routines',
-        'Mental stimulation activities',
-        'Detailed photo updates',
-        'Training reinforcement',
-        'Social interaction opportunities',
-        'Comprehensive post-walk report'
-      ],
-      requirements: [
-        'High energy or large breed dogs',
-        'Excellent leash manners',
-        'Well-socialized',
-        'Current health clearance'
-      ],
-    },
-    {
-      id: 'dropin-30',
-      title: '30-Minute Drop-in Visit',
-      description: 'Quick check-in visits for feeding, bathroom breaks, and companionship when you\'re away.',
-      icon: Calendar,
-      price: 2000,
-      priceUnit: 'per visit',
-      capacity: 1,
-      features: [
-        'Feeding and fresh water',
-        'Bathroom break',
-        'Basic companionship',
-        'Medication administration',
-        'Mail/package collection',
-        'Plant watering',
-        'Security check',
-        'Visit summary report'
-      ],
-      requirements: [
-        'Comfortable with strangers',
-        'Clear feeding instructions',
-        'Emergency contact information',
-        'Access arrangements'
-      ],
-    },
-    {
-      id: 'dropin-45',
-      title: '45-Minute Drop-in Visit',
-      description: 'Extended visits with additional playtime, longer walks, and more comprehensive care.',
-      icon: Calendar,
-      price: 3000,
-      priceUnit: 'per visit',
-      capacity: 1,
-      features: [
-        'Extended feeding and water time',
-        'Longer bathroom/garden time',
-        'Playtime and interaction',
-        'Short neighborhood walk',
-        'Medication administration',
-        'Basic grooming (brushing)',
-        'Home security check',
-        'Detailed visit report with photos'
-      ],
-      requirements: [
-        'Comfortable with extended visits',
-        'Basic leash training',
-        'Clear care instructions',
-        'Emergency veterinary contact'
       ],
     },
   ];
@@ -236,12 +153,12 @@ export default function ServicesPage() {
                             </div>
                           </div>
                         </div>
-                        <div className="text-right">
-                          <div className="text-2xl font-bold text-blue-600">
-                            {formatCurrency(service.price)}
-                          </div>
-                          <div className="text-sm text-gray-500">{service.priceUnit}</div>
+                                              <div className="text-right">
+                        <div className="text-2xl font-bold text-blue-600">
+                          From {formatCurrency(service.price)}
                         </div>
+                        <div className="text-sm text-gray-500">{service.priceUnit}</div>
+                      </div>
                       </div>
                       <CardDescription className="text-base">
                         {service.description}
@@ -249,6 +166,24 @@ export default function ServicesPage() {
                     </CardHeader>
                     
                     <CardContent className="space-y-6">
+                      {/* Pricing Options */}
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-3">Pricing Options:</h4>
+                        <div className="bg-blue-50 p-4 rounded-lg space-y-2">
+                          {service.priceOptions.map((option, optionIndex) => (
+                            <div key={optionIndex} className="flex justify-between items-center text-sm">
+                              <span className="text-blue-900 font-medium">{option.label}:</span>
+                              <div className="text-right">
+                                <span className="text-blue-800 font-semibold">{formatCurrency(option.price)}</span>
+                                {option.note && (
+                                  <div className="text-xs text-blue-600">{option.note}</div>
+                                )}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      
                       {/* Features */}
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-3">What's Included:</h4>
