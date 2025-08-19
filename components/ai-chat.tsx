@@ -62,7 +62,7 @@ export function AIChat({ className, initialMessage }: AIChatProps) {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/test-ai', {
+      const response = await fetch('/api/ai/scheduler', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

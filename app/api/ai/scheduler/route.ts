@@ -20,12 +20,16 @@ Your role is to help clients:
 
 Key guidelines:
 - Always use Canadian date format (YYYY-MM-DD) and mention the timezone (America/Toronto for GTA)
+- When users ask about services or prices, ALWAYS offer to check availability and help them book
+- Use the get_service_info tool to provide detailed service information
+- Use the check_availability tool when users want to book or ask about available dates
 - Only offer time slots that are confirmed available through the availability tools
 - Be friendly but professional - you're helping with their beloved pets
 - Always confirm details before making any bookings
 - Ask for pet details (name, any special needs) before booking
 - Explain pricing clearly including deposits and taxes
 - If a user wants to book, use the hold_time_slot tool first, then guide them to payment
+- Proactively offer to check availability when users show interest in booking
 
 Business context:
 - Located in the GTA (Greater Toronto Area), Ontario (Eastern Time)
@@ -92,13 +96,38 @@ export async function POST(request: NextRequest) {
     });
 
     // Get AI response
-    const completion = await openai.chat.completions.create({
-      model: 'gpt-4o-mini',
-      messages: chatMessages,
-      tools: AI_TOOLS as any,
-      tool_choice: 'auto',
-      temperature: 0.7,
-    });
+    let completion;
+    try {
+      completion = await openai.chat.completions.create({
+        model: 'gpt-4o-mini',
+        messages: chatMessages,
+        tools: AI_TOOLS as any,
+        tool_choice: 'auto',
+        temperature: 0.7,
+        timeout: 30000, // 30 second timeout
+      });
+    } catch (openaiError) {
+      console.error('OpenAI API error:', openaiError);
+      
+      // Fallback response if OpenAI fails
+      const fallbackResponse = validatedData.message.toLowerCase().includes('book') || validatedData.message.toLowerCase().includes('availability')
+        ? "I'd love to help you check availability and book services! However, I'm experiencing a temporary issue with my booking system. Please try again in a moment, or feel free to call us directly at (647) 986-4106."
+        : "I'm currently experiencing a temporary issue. Please try your question again in a moment, or contact us at (647) 986-4106. I'm here to help with Beautiful Souls Boarding services!";
+      
+      await prisma.message.create({
+        data: {
+          conversationId,
+          role: 'ASSISTANT',
+          content: fallbackResponse,
+        },
+      });
+
+      return NextResponse.json({
+        success: true,
+        conversationId,
+        message: fallbackResponse,
+      });
+    }
 
     const assistantMessage = completion.choices[0].message;
     let responseContent = assistantMessage.content || '';
