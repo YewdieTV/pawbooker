@@ -93,7 +93,7 @@ export async function POST(request: NextRequest) {
     const completion = await openai.chat.completions.create({
       model: 'gpt-4o-mini',
       messages: chatMessages,
-      tools: AI_TOOLS,
+      tools: AI_TOOLS as any,
       tool_choice: 'auto',
       temperature: 0.7,
     });
