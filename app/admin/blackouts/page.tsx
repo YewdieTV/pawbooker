@@ -14,7 +14,7 @@ import { CalendarX, Plus, AlertCircle } from 'lucide-react';
 async function getBlackouts() {
   try {
     const blackouts = await prisma.blackout.findMany({
-      orderBy: { startDate: 'asc' },
+      orderBy: { createdAt: 'desc' },
     });
     return blackouts;
   } catch (error) {
