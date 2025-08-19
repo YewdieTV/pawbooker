@@ -1,4 +1,4 @@
-# PawBooker - AI-Powered Dog Care Booking Platform
+# Beautiful Souls Boarding - Professional Dog Care Booking Platform
 
 A production-ready full-stack booking website for dog care services with an intelligent AI scheduling agent. Built with Next.js 14, TypeScript, and modern web technologies.
 
@@ -7,7 +7,7 @@ A production-ready full-stack booking website for dog care services with an inte
 ## 🚀 Features
 
 ### Core Features
-- **AI-Powered Booking Agent**: Natural language booking with OpenAI GPT-4o-mini
+- **Melissa - AI Booking Assistant**: Natural language booking with OpenAI GPT-4o-mini
 - **Real-time Availability**: Dynamic scheduling with capacity management and buffer times
 - **Multi-Service Support**: Boarding, daycare, walks, and drop-in visits
 - **Secure Payments**: Stripe integration with deposit handling
