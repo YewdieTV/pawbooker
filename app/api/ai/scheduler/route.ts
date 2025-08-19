@@ -104,7 +104,6 @@ export async function POST(request: NextRequest) {
         tools: AI_TOOLS as any,
         tool_choice: 'auto',
         temperature: 0.7,
-        timeout: 30000, // 30 second timeout
       });
     } catch (openaiError) {
       console.error('OpenAI API error:', openaiError);
