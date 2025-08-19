@@ -19,16 +19,16 @@ export const authOptions: NextAuthOptions = {
           pass: process.env.RESEND_API_KEY,
         },
       },
-      from: process.env.FROM_EMAIL || 'noreply@pawbooker.com',
+      from: process.env.FROM_EMAIL || 'noreply@beautifulsoulsboarding.com',
       sendVerificationRequest: async ({ identifier: email, url }) => {
         try {
           await resend.emails.send({
-            from: process.env.FROM_EMAIL || 'noreply@pawbooker.com',
+            from: process.env.FROM_EMAIL || 'noreply@beautifulsoulsboarding.com',
             to: email,
-            subject: 'Sign in to PawBooker',
+            subject: 'Sign in to Beautiful Souls Boarding',
             html: `
               <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-                <h2 style="color: #2563eb;">Welcome to PawBooker!</h2>
+                <h2 style="color: #2563eb;">Welcome to Beautiful Souls Boarding!</h2>
                 <p>Click the link below to sign in to your account:</p>
                 <a href="${url}" style="background-color: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block; margin: 16px 0;">
                   Sign In
