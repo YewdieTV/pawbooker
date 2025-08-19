@@ -133,7 +133,7 @@ export function AvailabilityCalendar({
     
     if (dayAvailability?.available) {
       setSelectedDate(date);
-      onDateSelect?.(date);
+      onDateSelect?.(date, dayAvailability.intervals);
     }
   };
 

@@ -45,6 +45,7 @@ export function AIChat({ className, initialMessage }: AIChatProps) {
     if (initialMessage) {
       handleSendMessage(initialMessage);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialMessage]);
 
   const handleSendMessage = async (messageText?: string) => {
