@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
     const chatMessages: OpenAI.Chat.Completions.ChatCompletionMessageParam[] = [
       { role: 'system', content: SYSTEM_PROMPT },
       ...messages.map(msg => {
-        if (msg.role === 'tool') {
+        if (msg.role === 'TOOL') {
           return {
             role: 'tool' as const,
             content: msg.content,
@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
           };
         }
         return {
-          role: msg.role as 'user' | 'assistant',
+          role: msg.role.toLowerCase() as 'user' | 'assistant',
           content: msg.content,
         };
       }),

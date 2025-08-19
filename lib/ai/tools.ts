@@ -7,7 +7,7 @@ import {
 } from '@/lib/validations';
 import { ServiceType } from '@prisma/client';
 import { parseISO, addDays, startOfDay, endOfDay, format, addHours } from 'date-fns';
-import { zonedTimeToUtc } from 'date-fns-tz';
+import { fromZonedTime } from 'date-fns-tz';
 
 const TIMEZONE = 'America/Toronto';
 
@@ -46,8 +46,8 @@ export async function checkAvailability(params: any): Promise<AIToolResult> {
 
     const intervals = await getOpenIntervals({
       serviceId: service.id,
-      from: zonedTimeToUtc(startDate, TIMEZONE),
-      to: zonedTimeToUtc(endDate, TIMEZONE),
+      from: fromZonedTime(startDate, TIMEZONE),
+      to: fromZonedTime(endDate, TIMEZONE),
     });
 
     // Convert intervals back to local time and format for AI

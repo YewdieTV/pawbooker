@@ -17,7 +17,7 @@ import {
   max,
   addDays
 } from 'date-fns';
-import { zonedTimeToUtc, utcToZonedTime } from 'date-fns-tz';
+import { toZonedTime, fromZonedTime } from 'date-fns-tz';
 
 export interface TimeInterval {
   start: Date;
@@ -211,8 +211,8 @@ async function getAvailabilityRuleIntervals(from: Date, to: Date): Promise<TimeI
       const endTime = timeStringToDate(rule.endTime, day);
       
       // Convert to UTC for consistent handling
-      const start = zonedTimeToUtc(startTime, TIMEZONE);
-      const end = zonedTimeToUtc(endTime, TIMEZONE);
+      const start = fromZonedTime(startTime, TIMEZONE);
+      const end = fromZonedTime(endTime, TIMEZONE);
       
       intervals.push({ start, end });
     }
