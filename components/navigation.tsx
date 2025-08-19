@@ -29,6 +29,7 @@ export function Navigation() {
     { href: '/portal', label: 'My Bookings', icon: Calendar },
     ...(session.user.role === 'ADMIN' ? [
       { href: '/admin', label: 'Admin Dashboard', icon: Settings },
+      { href: '/admin/blackouts', label: 'Blackout Dates', icon: Calendar },
     ] : []),
   ] : [];
 
