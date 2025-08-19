@@ -39,7 +39,7 @@ interface AvailabilityCalendarProps {
   services: Service[];
   selectedService?: Service;
   onServiceChange?: (service: Service) => void;
-  onDateSelect?: (date: Date) => void;
+  onDateSelect?: (date: Date, intervals: Array<{ start: string; end: string }>) => void;
 }
 
 interface DayAvailability {
@@ -125,7 +125,7 @@ export function AvailabilityCalendar({
     };
 
     fetchAvailability();
-  }, [activeService, currentMonth]);
+  }, [activeService?.id, currentMonth]);
 
   const handleDateClick = (date: Date) => {
     const dayKey = format(date, 'yyyy-MM-dd');

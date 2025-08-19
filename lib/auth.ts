@@ -41,7 +41,6 @@ export const authOptions: NextAuthOptions = {
           });
           
           console.log('✅ Email sent successfully:', result);
-          return result;
         } catch (error) {
           console.error('❌ Failed to send verification email:', error);
           throw error;
