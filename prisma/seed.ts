@@ -17,8 +17,8 @@ async function main() {
       depositPct: 50,
       taxRate: 0.13,
       address: '123 Dog Street, Toronto, ON M5V 3A8',
-      contactEmail: 'hello@pawbooker.com',
-      contactPhone: '+1 (416) 555-0123',
+              contactEmail: 'BeautifulSoulsPetBoarding@hotmail.com',
+        contactPhone: '(647) 986-4106',
       businessName: 'Beautiful Souls Boarding',
     },
   });

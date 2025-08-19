@@ -320,7 +320,7 @@ export default async function ClientPortalPage() {
                 <CardContent className="space-y-3 text-sm">
                   <div className="flex items-center">
                     <Phone className="h-4 w-4 mr-2" />
-                    <span>(416) 555-0123</span>
+                    <span>(647) 986-4106</span>
                   </div>
                   <div className="flex items-center">
                     <MapPin className="h-4 w-4 mr-2" />
@@ -330,9 +330,8 @@ export default async function ClientPortalPage() {
                     <p className="text-gray-600 mb-2">
                       Business Hours:
                     </p>
-                    <p>Mon-Fri: 8:00 AM - 6:00 PM</p>
-                    <p>Sat: 9:00 AM - 5:00 PM</p>
-                    <p>Sun: Closed</p>
+                    <p>Monday - Sunday: Open 24/7</p>
+                    <p className="text-xs text-gray-500 mt-1">Available around the clock for your pet's needs</p>
                   </div>
                 </CardContent>
               </Card>

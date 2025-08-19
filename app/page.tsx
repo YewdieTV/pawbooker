@@ -270,8 +270,6 @@ export default function HomePage() {
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/services" className="hover:text-white transition-colors">Dog Boarding</Link></li>
                 <li><Link href="/services" className="hover:text-white transition-colors">Daycare</Link></li>
-                <li><Link href="/services" className="hover:text-white transition-colors">Dog Walking</Link></li>
-                <li><Link href="/services" className="hover:text-white transition-colors">Drop-in Visits</Link></li>
               </ul>
             </div>
             
@@ -293,11 +291,11 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-4 w-4 mr-2" />
-                  <span>(416) 555-0123</span>
+                  <span>(647) 986-4106</span>
                 </div>
                 <div className="flex items-center">
                   <Mail className="h-4 w-4 mr-2" />
-                  <span>hello@pawbooker.com</span>
+                  <span>BeautifulSoulsPetBoarding@hotmail.com</span>
                 </div>
               </div>
             </div>

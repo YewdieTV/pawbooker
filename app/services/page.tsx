@@ -281,10 +281,9 @@ export default function ServicesPage() {
                     </h3>
                     <ul className="space-y-2 text-sm text-gray-600">
                       <li>• Serving Toronto and surrounding areas</li>
-                      <li>• Monday - Friday: 8:00 AM - 6:00 PM</li>
-                      <li>• Saturday: 9:00 AM - 5:00 PM</li>
-                      <li>• Sunday: Closed (except boarding pickups)</li>
-                      <li>• Holiday schedules may vary</li>
+                      <li>• Monday - Sunday: Open 24/7</li>
+                      <li>• Available around the clock for your pet's needs</li>
+                      <li>• Emergency care always available</li>
                     </ul>
                   </div>
                 </div>

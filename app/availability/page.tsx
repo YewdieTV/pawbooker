@@ -143,19 +143,11 @@ export default async function AvailabilityPage() {
                 </CardHeader>
                 <CardContent className="text-sm space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Monday - Friday:</span>
-                    <span className="font-medium">8:00 AM - 6:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Saturday:</span>
-                    <span className="font-medium">9:00 AM - 5:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Sunday:</span>
-                    <span className="font-medium">Closed*</span>
+                    <span className="text-gray-600">Monday - Sunday:</span>
+                    <span className="font-medium">Open 24/7</span>
                   </div>
                   <p className="text-xs text-gray-500 pt-2 border-t">
-                    *Boarding pickup/drop-off available by appointment
+                    Available around the clock for your pet's needs
                   </p>
                 </CardContent>
               </Card>
@@ -173,12 +165,12 @@ export default async function AvailabilityPage() {
                     <div>
                       <span className="font-medium">Phone:</span>
                       <br />
-                      <span className="text-gray-600">(416) 555-0123</span>
+                      <span className="text-gray-600">(647) 986-4106</span>
                     </div>
                     <div>
                       <span className="font-medium">Email:</span>
                       <br />
-                      <span className="text-gray-600">hello@pawbooker.com</span>
+                      <span className="text-gray-600">BeautifulSoulsPetBoarding@hotmail.com</span>
                     </div>
                   </div>
                 </CardContent>
