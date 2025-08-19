@@ -25,13 +25,13 @@ async function main() {
 
   // Create admin user
   const adminUser = await prisma.user.upsert({
-    where: { email: 'admin@pawbooker.com' },
+    where: { email: 'MelissaKataras@hotmail.com' },
     update: {},
     create: {
-      email: 'admin@pawbooker.com',
-      name: 'Admin User',
+      email: 'MelissaKataras@hotmail.com',
+      name: 'Melissa Kataras',
       role: UserRole.ADMIN,
-      phone: '+1 (416) 555-0123',
+      phone: '(647) 986-4106',
       address: '123 Dog Street, Toronto, ON M5V 3A8',
     },
   });
