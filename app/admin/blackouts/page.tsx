@@ -96,15 +96,7 @@ export default async function BlackoutsPage() {
                     />
                   </div>
                   
-                  <div>
-                    <Label htmlFor="description">Description (Optional)</Label>
-                    <Textarea
-                      id="description"
-                      name="description"
-                      placeholder="Additional details about this blackout period"
-                      rows={3}
-                    />
-                  </div>
+
                   
                   <Button type="submit" className="w-full">
                     Add Blackout Period

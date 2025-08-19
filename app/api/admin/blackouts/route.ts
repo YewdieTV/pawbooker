@@ -8,7 +8,6 @@ const CreateBlackoutSchema = z.object({
   startDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   endDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   reason: z.string().min(1).max(100),
-  description: z.string().max(500).optional(),
 });
 
 export async function POST(request: NextRequest) {
@@ -28,7 +27,6 @@ export async function POST(request: NextRequest) {
       startDate: formData.get('startDate') as string,
       endDate: formData.get('endDate') as string,
       reason: formData.get('reason') as string,
-      description: formData.get('description') as string || undefined,
     };
 
     const validated = CreateBlackoutSchema.parse(data);
@@ -57,20 +55,20 @@ export async function POST(request: NextRequest) {
         OR: [
           {
             AND: [
-              { startDate: { lte: startDate } },
-              { endDate: { gte: startDate } }
+              { startDateTime: { lte: startDate } },
+              { endDateTime: { gte: startDate } }
             ]
           },
           {
             AND: [
-              { startDate: { lte: endDate } },
-              { endDate: { gte: endDate } }
+              { startDateTime: { lte: endDate } },
+              { endDateTime: { gte: endDate } }
             ]
           },
           {
             AND: [
-              { startDate: { gte: startDate } },
-              { endDate: { lte: endDate } }
+              { startDateTime: { gte: startDate } },
+              { endDateTime: { lte: endDate } }
             ]
           }
         ]
@@ -87,10 +85,9 @@ export async function POST(request: NextRequest) {
     // Create blackout
     await prisma.blackout.create({
       data: {
-        startDate,
-        endDate,
+        startDateTime: startDate,
+        endDateTime: endDate,
         reason: validated.reason,
-        description: validated.description,
       },
     });
 

@@ -160,21 +160,21 @@ async function getBlackoutBlocks(from: Date, to: Date): Promise<TimeInterval[]> 
     where: {
       OR: [
         {
-          startDate: {
+          startDateTime: {
             gte: from,
             lte: to,
           },
         },
         {
-          endDate: {
+          endDateTime: {
             gte: from,
             lte: to,
           },
         },
         {
           AND: [
-            { startDate: { lte: from } },
-            { endDate: { gte: to } },
+            { startDateTime: { lte: from } },
+            { endDateTime: { gte: to } },
           ],
         },
       ],
@@ -182,8 +182,8 @@ async function getBlackoutBlocks(from: Date, to: Date): Promise<TimeInterval[]> 
   });
 
   return blackouts.map(blackout => ({
-    start: blackout.startDate,
-    end: blackout.endDate,
+    start: blackout.startDateTime,
+    end: blackout.endDateTime,
   }));
 }
 

@@ -10,11 +10,11 @@ import { useRouter } from 'next/navigation';
 
 interface Blackout {
   id: string;
-  startDate: Date;
-  endDate: Date;
-  reason: string;
-  description?: string | null;
+  startDateTime: Date;
+  endDateTime: Date;
+  reason: string | null;
   createdAt: Date;
+  updatedAt: Date;
 }
 
 interface BlackoutManagementProps {
@@ -29,15 +29,15 @@ export function BlackoutManagement({ blackouts }: BlackoutManagementProps) {
   
   // Separate active, upcoming, and past blackouts
   const activeBlackouts = blackouts.filter(blackout => 
-    isBefore(blackout.startDate, today) && isAfter(blackout.endDate, today)
+    isBefore(blackout.startDateTime, today) && isAfter(blackout.endDateTime, today)
   );
   
   const upcomingBlackouts = blackouts.filter(blackout => 
-    isAfter(blackout.startDate, today)
+    isAfter(blackout.startDateTime, today)
   );
   
   const pastBlackouts = blackouts.filter(blackout => 
-    isBefore(blackout.endDate, today)
+    isBefore(blackout.endDateTime, today)
   );
 
   const handleDelete = async (blackoutId: string) => {
@@ -71,10 +71,10 @@ export function BlackoutManagement({ blackouts }: BlackoutManagementProps) {
     return (
       <Card key={blackout.id} className={`${status === 'active' ? 'border-red-200 bg-red-50' : ''}`}>
         <CardContent className="pt-6">
-          <div className="flex items-start justify-between">
+                      <div className="flex items-start justify-between">
             <div className="flex-1">
               <div className="flex items-center space-x-2 mb-2">
-                <h3 className="font-semibold text-gray-900">{blackout.reason}</h3>
+                <h3 className="font-semibold text-gray-900">{blackout.reason || 'Blackout Period'}</h3>
                 <Badge variant={status === 'active' ? 'destructive' : status === 'upcoming' ? 'default' : 'secondary'}>
                   {status}
                 </Badge>
@@ -84,14 +84,10 @@ export function BlackoutManagement({ blackouts }: BlackoutManagementProps) {
                 <div className="flex items-center space-x-1">
                   <Calendar className="h-4 w-4" />
                   <span>
-                    {format(new Date(blackout.startDate), 'MMM d, yyyy')} - {format(new Date(blackout.endDate), 'MMM d, yyyy')}
+                    {format(new Date(blackout.startDateTime), 'MMM d, yyyy')} - {format(new Date(blackout.endDateTime), 'MMM d, yyyy')}
                   </span>
                 </div>
               </div>
-              
-              {blackout.description && (
-                <p className="text-sm text-gray-600 mb-3">{blackout.description}</p>
-              )}
               
               <div className="flex items-center space-x-1 text-xs text-gray-500">
                 <Clock className="h-3 w-3" />
