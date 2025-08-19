@@ -63,16 +63,37 @@ export function AIChat({ className, initialMessage }: AIChatProps) {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/ai/scheduler', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message: messageToSend,
-          conversationId,
-        }),
-      });
+      // Check if this is a booking request
+      const lowerMessage = messageToSend.toLowerCase();
+      const isBookingRequest = lowerMessage.includes('book') && 
+                              (lowerMessage.includes('daycare') || lowerMessage.includes('boarding'));
+      
+      let response;
+      
+      if (isBookingRequest) {
+        // Use simple booking endpoint for direct availability checking
+        response = await fetch('/api/ai/simple-booking', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            message: messageToSend,
+          }),
+        });
+      } else {
+        // Use regular AI scheduler for other queries
+        response = await fetch('/api/ai/scheduler', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            message: messageToSend,
+            conversationId,
+          }),
+        });
+      }
 
       const data = await response.json();
 
