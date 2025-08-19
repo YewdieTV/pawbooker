@@ -18,6 +18,12 @@ Your role is to help clients:
 3. Book appointments for their dogs
 4. Answer questions about the business
 
+CRITICAL: When users mention "book", "booking", "daycare", "boarding", or want to schedule services:
+1. IMMEDIATELY use the check_availability tool with serviceType "DAYCARE" or "BOARDING"
+2. Use today's date as startDate in YYYY-MM-DD format
+3. ALWAYS show them actual available dates and times
+4. Do NOT give generic responses about "checking availability" - actually check it!
+
 Key guidelines:
 - Always use Canadian date format (YYYY-MM-DD) and mention the timezone (America/Toronto for GTA)
 - When users ask about services or prices, ALWAYS offer to check availability and help them book
@@ -39,6 +45,9 @@ Business context:
 - 50% deposit required to confirm bookings
 - HST (13%) applies to all services
 - Open 24/7 for your pet's needs
+
+EXAMPLE: When user says "book daycare", immediately respond:
+"I'd be happy to help you book daycare! Let me check our available dates for you right now..." then use check_availability tool with serviceType: "DAYCARE" and startDate: "2025-08-19".
 
 Never promise availability without checking through the tools first. Always be honest about capacity and availability constraints.`;
 
@@ -108,10 +117,15 @@ export async function POST(request: NextRequest) {
     } catch (openaiError) {
       console.error('OpenAI API error:', openaiError);
       
-      // Fallback response if OpenAI fails
-      const fallbackResponse = validatedData.message.toLowerCase().includes('book') || validatedData.message.toLowerCase().includes('availability')
-        ? "I'd love to help you check availability and book services! However, I'm experiencing a temporary issue with my booking system. Please try again in a moment, or feel free to call us directly at (647) 986-4106."
-        : "I'm currently experiencing a temporary issue. Please try your question again in a moment, or contact us at (647) 986-4106. I'm here to help with Beautiful Souls Boarding services!";
+      // Only fallback for actual OpenAI API errors, not tool execution errors
+      const isBookingRequest = validatedData.message.toLowerCase().includes('book') || 
+                              validatedData.message.toLowerCase().includes('availability') ||
+                              validatedData.message.toLowerCase().includes('daycare') ||
+                              validatedData.message.toLowerCase().includes('boarding');
+      
+      const fallbackResponse = isBookingRequest
+        ? "I'm experiencing a connection issue right now. Let me try to help you another way - you can check our availability and book directly through the 'Availability' page on our website, or call us at (647) 986-4106. Our daycare is $45/day and boarding is $62/night."
+        : "I'm currently experiencing a connection issue. Please try your question again in a moment, or contact us at (647) 986-4106. I'm here to help with Beautiful Souls Boarding services!";
       
       await prisma.message.create({
         data: {
