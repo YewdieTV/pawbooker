@@ -22,7 +22,7 @@ export function Navigation() {
     { href: '/', label: 'Home' },
     { href: '/services', label: 'Services' },
     { href: '/availability', label: 'Availability' },
-    { href: '/book-with-assistant', label: 'Book with AI' },
+    { href: '/book-with-assistant', label: 'Book with Melissa' },
   ];
 
   const userMenuItems = session ? [

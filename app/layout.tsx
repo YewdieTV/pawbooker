@@ -8,12 +8,12 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Beautiful Souls Boarding - Professional Dog Care Services',
-  description: 'Book trusted dog boarding, daycare, walks, and drop-in visits with our AI-powered scheduling assistant.',
-  keywords: ['dog boarding', 'dog daycare', 'dog walking', 'pet care', 'Toronto'],
+  description: 'Book trusted dog boarding and daycare services with Melissa, our scheduling assistant.',
+  keywords: ['dog boarding', 'dog daycare', 'pet care', 'GTA', 'Greater Toronto Area'],
   authors: [{ name: 'Beautiful Souls Boarding' }],
   openGraph: {
     title: 'Beautiful Souls Boarding - Professional Dog Care Services',
-    description: 'Book trusted dog boarding, daycare, walks, and drop-in visits with our AI-powered scheduling assistant.',
+    description: 'Book trusted dog boarding and daycare services with Melissa, our scheduling assistant.',
     type: 'website',
     locale: 'en_CA',
   },

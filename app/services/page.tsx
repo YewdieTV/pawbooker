@@ -112,7 +112,7 @@ export default function ServicesPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg">
-                  <Link href="/book-with-assistant">Book with AI Assistant</Link>
+                  <Link href="/book-with-assistant">Book with Melissa</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
                   <Link href="/availability">Check Availability</Link>
@@ -280,7 +280,7 @@ export default function ServicesPage() {
                       Service Area & Hours
                     </h3>
                     <ul className="space-y-2 text-sm text-gray-600">
-                      <li>• Serving Toronto and surrounding areas</li>
+                      <li>• Serving the GTA and surrounding areas</li>
                       <li>• Monday - Sunday: Open 24/7</li>
                       <li>• Available around the clock for your pet's needs</li>
                       <li>• Emergency care always available</li>

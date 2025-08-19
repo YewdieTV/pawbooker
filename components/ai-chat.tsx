@@ -24,7 +24,7 @@ export function AIChat({ className, initialMessage }: AIChatProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: "Hi! I'm the Beautiful Souls Boarding AI assistant, your friendly dog care booking helper. I can help you find available time slots, book services, and answer questions about our dog care options. How can I help you today?",
+      content: "Hi! I'm Melissa, your friendly Beautiful Souls Boarding booking assistant. I can help you find available time slots, book services, and answer questions about our dog care options. How can I help you today?",
       timestamp: new Date(),
     },
   ]);
@@ -125,7 +125,7 @@ export function AIChat({ className, initialMessage }: AIChatProps) {
       <CardHeader className="pb-4">
         <CardTitle className="flex items-center space-x-2">
           <MessageCircle className="h-5 w-5 text-blue-600" />
-          <span>Beautiful Souls Boarding AI Assistant</span>
+          <span>Melissa - Your Booking Assistant</span>
         </CardTitle>
       </CardHeader>
       

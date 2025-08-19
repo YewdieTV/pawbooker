@@ -81,7 +81,7 @@ export default async function AvailabilityPage() {
                   <Button asChild className="w-full">
                     <Link href="/book-with-assistant">
                       <MessageCircle className="h-4 w-4 mr-2" />
-                      Book with AI Assistant
+                      Book with Melissa
                     </Link>
                   </Button>
                   <Button asChild variant="outline" className="w-full">

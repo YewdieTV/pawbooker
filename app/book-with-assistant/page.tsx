@@ -36,7 +36,7 @@ export default function BookWithAssistantPage() {
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Book with AI Assistant
+              Book with Melissa
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Let our smart booking assistant help you find the perfect care for your dog. 

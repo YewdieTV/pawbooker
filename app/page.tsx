@@ -77,14 +77,14 @@ export default function HomePage() {
               <span className="text-blue-600"> - Professional Dog Care</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Book trusted dog boarding and daycare services with our AI-powered 
-              scheduling assistant. Your furry friend deserves the best care in Toronto.
+              Book trusted dog boarding and daycare services with Melissa, 
+              our scheduling assistant. Your furry friend deserves the best care in the GTA.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
                 <Link href="/book-with-assistant">
                   <MessageCircle className="mr-2 h-5 w-5" />
-                  Book with AI Assistant
+                  Book with Melissa
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
@@ -170,7 +170,7 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MessageCircle className="h-8 w-8 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">AI-Powered Booking</h3>
+              <h3 className="text-xl font-semibold mb-2">Melissa - Your Booking Assistant</h3>
               <p className="text-gray-600">
                 Chat with our smart assistant to find and book the perfect time slots for your dog's needs.
               </p>
@@ -233,7 +233,7 @@ export default function HomePage() {
             Ready to Book Your Dog's Care?
           </h2>
                       <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Join hundreds of happy pet parents in Toronto who trust Beautiful Souls Boarding for their dog care needs.
+              Join hundreds of happy pet parents in the GTA who trust Beautiful Souls Boarding for their dog care needs.
             </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" variant="secondary">
@@ -261,7 +261,7 @@ export default function HomePage() {
                 <span className="text-xl font-bold">Beautiful Souls Boarding</span>
               </div>
               <p className="text-gray-400">
-                Professional dog care services in Toronto. Your pet's happiness is our mission.
+                Professional dog care services in the GTA. Your pet's happiness is our mission.
               </p>
             </div>
             
@@ -276,7 +276,7 @@ export default function HomePage() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="/book-with-assistant" className="hover:text-white transition-colors">Book with AI</Link></li>
+                <li><Link href="/book-with-assistant" className="hover:text-white transition-colors">Book with Melissa</Link></li>
                 <li><Link href="/availability" className="hover:text-white transition-colors">Check Availability</Link></li>
                 <li><Link href="/portal" className="hover:text-white transition-colors">Client Portal</Link></li>
               </ul>
