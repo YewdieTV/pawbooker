@@ -134,6 +134,13 @@ export function AvailabilityCalendar({
     if (dayAvailability?.available) {
       setSelectedDate(date);
       onDateSelect?.(date, dayAvailability.intervals);
+      
+      // Navigate to booking form if we have a service selected
+      if (activeService && dayAvailability.intervals.length > 0) {
+        const firstInterval = dayAvailability.intervals[0];
+        const bookingUrl = `/book/${activeService.type.toLowerCase()}/${format(date, 'yyyy-MM-dd')}?startTime=${firstInterval.start}&endTime=${firstInterval.end}`;
+        window.location.href = bookingUrl;
+      }
     }
   };
 

@@ -125,6 +125,7 @@ model Pet {
   bookings Booking[]
 
   @@index([ownerId])
+  @@unique([ownerId, name])
 }
 
 model Service {
