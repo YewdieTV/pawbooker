@@ -19,11 +19,11 @@ export const authOptions: NextAuthOptions = {
           pass: process.env.RESEND_API_KEY,
         },
       },
-      from: process.env.FROM_EMAIL || 'onboarding@resend.dev',
+      from: 'onboarding@resend.dev', // Force use of Resend test domain
       sendVerificationRequest: async ({ identifier: email, url }) => {
         try {
           await resend.emails.send({
-            from: process.env.FROM_EMAIL || 'onboarding@resend.dev',
+            from: 'onboarding@resend.dev', // Force use of Resend test domain
             to: email,
             subject: 'Sign in to Beautiful Souls Boarding',
             html: `
