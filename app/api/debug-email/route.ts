@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
     // Test email send
     const result = await resend.emails.send({
       from: 'onboarding@resend.dev', // Use Resend's test domain
-      to: 'MelissaKataras@hotmail.com',
+      to: 'chatgbttwitchemote@gmail.com', // Must use the verified email for testing
       subject: 'Test Email from Beautiful Souls Boarding',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
